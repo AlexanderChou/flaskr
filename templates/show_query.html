@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block body %}
+    <form action="{{ url_for('query') }}" method="post" class="query">
+        <dl>
+            url :
+            <input type="text" size="60" name="url">
+            <input type="submit" value="find">
+        </dl>
+    </form>
+
+<div>
+    <h1>Result</h1>
+</div>
+    <ul class="entries">
+        {% for result in results %}
+        <li><a href="{{ result }}" target="_blank">Suspect</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
